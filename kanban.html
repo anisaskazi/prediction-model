@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kanban Board</title>
+  <link rel="stylesheet" href="kanban.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Kanban Board</h1>
+    <div class="actions">
+      <input id="search" class="search" type="search" placeholder="Search (title, tag, desc)…" aria-label="Search tasks"/>
+      <select id="tagFilter" class="select">
+        <option value="">All tags</option>
+      </select>
+      <button id="newTaskBtn" class="btn primary">+ New Task</button>
+      <button id="exportBtn" class="btn">Export</button>
+      <label class="btn file">
+        Import <input id="importInput" type="file" accept="application/json" hidden>
+      </label>
+      <button id="themeBtn" class="btn">🌙</button>
+    </div>
+  </header>
+
+  <main class="board" id="board" aria-label="Kanban columns">
+    <section class="col" data-col="backlog" aria-label="Backlog" tabindex="0">
+      <header>Backlog</header>
+      <div class="dropzone" data-col="backlog" id="col-backlog"></div>
+    </section>
+    <section class="col" data-col="progress" aria-label="In Progress" tabindex="0">
+      <header>In Progress</header>
+      <div class="dropzone" data-col="progress" id="col-progress"></div>
+    </section>
+    <section class="col" data-col="review" aria-label="Review" tabindex="0">
+      <header>Review</header>
+      <div class="dropzone" data-col="review" id="col-review"></div>
+    </section>
+    <section class="col" data-col="done" aria-label="Done" tabindex="0">
+      <header>Done</header>
+      <div class="dropzone" data-col="done" id="col-done"></div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <dialog id="taskDialog">
+    <form id="taskForm" method="dialog">
+      <div class="dialog-header">
+        <h3 id="dialogTitle">New Task</h3>
+        <button type="button" class="icon" id="closeDialog" aria-label="Close">✖</button>
+      </div>
+
+      <label class="field">
+        <span>Title *</span>
+        <input id="title" type="text" required maxlength="120" />
+      </label>
+
+      <label class="field">
+        <span>Description</span>
+        <textarea id="desc" rows="4" maxlength="1000"></textarea>
+      </label>
+
+      <div class="grid2">
+        <label class="field">
+          <span>Priority</span>
+          <select id="priority">
+            <option value="low">Low</option>
+            <option value="med" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Due date</span>
+          <input id="due" type="date"/>
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Tags (comma separated)</span>
+        <input id="tags" type="text" placeholder="ui, bug, docs"/>
+      </label>
+
+      <input id="taskId" type="hidden" />
+      <input id="taskCol" type="hidden" />
+
+      <menu class="dialog-actions">
+        <button type="submit" class="btn primary" id="saveBtn">Save</button>
+        <button type="button" class="btn danger" id="deleteBtn" hidden>Delete</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <template id="cardTpl">
+    <article class="card" draggable="true" tabindex="0" aria-grabbed="false">
+      <header class="card-head">
+        <span class="prio"></span>
+        <h4 class="title"></h4>
+      </header>
+      <p class="desc"></p>
+      <div class="meta">
+        <div class="tags"></div>
+        <time class="due"></time>
+      </div>
+      <footer class="card-actions">
+        <button class="icon edit" title="Edit">✏️</button>
+        <button class="icon del" title="Delete">🗑️</button>
+      </footer>
+    </article>
+  </template>
+
+  <script src="kanban.js" defer></script>
+</body>
+</html>
