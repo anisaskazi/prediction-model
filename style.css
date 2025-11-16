@@ -1,0 +1,39 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;color:#1f2937}
+
+/* Navbar */
+.nav{display:flex;justify-content:space-between;align-items:center;
+     background:#2f3b45;color:#fff;padding:12px 28px;position:sticky;top:0}
+.nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:600}
+.brand{font-weight:800;letter-spacing:.5px}
+
+/* Hero */
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;
+      align-items:center;text-align:center;color:#fff;background-size:cover;
+      background-position:center;position:relative}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.hero>*{position:relative;z-index:1}
+.hero h1{font-size:48px;margin:0 0 12px}
+.hero p{max-width:900px;font-size:18px;opacity:.95;margin:0 16px 28px}
+.btn{background:#22c55e;border:none;color:#fff;padding:12px 22px;border-radius:8px;
+     font-weight:700;cursor:pointer}
+.btn:hover{filter:brightness(.95)}
+
+/* Cards */
+.card{max-width:760px;margin:28px auto;background:rgba(255,255,255,.92);
+      padding:22px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+.card.wide{max-width:780px}
+
+/* Form */
+form label{display:block;margin:10px 0 6px;font-weight:600}
+form input{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:8px}
+.form-wrap{min-height:90vh;display:flex;align-items:center;justify-content:center;
+           background-size:cover;background-position:center}
+
+/* Result */
+.result{min-height:80vh;display:flex;align-items:center;justify-content:center;
+        text-align:center;color:#fff;background-size:cover;background-position:center}
+.result h2{font-size:34px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.badge{display:inline-block;background:#22c55e;color:#fff;padding:8px 14px;
+       border-radius:999px;font-weight:800;margin-left:10px}
+

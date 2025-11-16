@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Enter Values • Kazi Agrotech</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">Kazi Agrotech</div>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/form">Predict</a>
+    </div>
+  </nav>
+
+  <main class="form-wrap" style="background-image:url('{{ url_for('static', filename='form.jpeg') }}')">
+    <div class="card wide">
+      <h2 style="margin-top:0;">Enter Soil & Weather Parameters</h2>
+      <form action="/predict" method="post">
+        <label>Nitrogen (N)</label>
+        <input type="number" step="any" name="N" placeholder="e.g., 90" required>
+
+        <label>Phosphorus (P)</label>
+        <input type="number" step="any" name="P" placeholder="e.g., 42" required>
+
+        <label>Potassium (K)</label>
+        <input type="number" step="any" name="K" placeholder="e.g., 43" required>
+
+        <label>Temperature (°C)</label>
+        <input type="number" step="any" name="temperature" placeholder="e.g., 20.8" required>
+
+        <label>Humidity (%)</label>
+        <input type="number" step="any" name="humidity" placeholder="e.g., 82.0" required>
+
+        <label>pH (0–14)</label>
+        <input type="number" step="any" name="ph" placeholder="e.g., 6.5" required>
+
+        <label>Rainfall (mm)</label>
+        <input type="number" step="any" name="rainfall" placeholder="e.g., 203" required>
+
+        <button class="btn" type="submit">Predict Your Crop</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Recommendation • Kazi Agrotech</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">Kazi Agrotech</div>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/form">Try Again</a>
+    </div>
+  </nav>
+
+  <section class="result" style="background-image:url('{{ url_for('static', filename='result.jpeg') }}')">
+    <h2>
+      According to your soil nutrients you should grow
+      <span class="badge">{{ crop }}</span>
+    </h2>
+  </section>
+</body>
+</html>

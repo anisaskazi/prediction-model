@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kazi Agrotech</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">Kazi Agrotech</div>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="/form">Get Started</a>
+    </div>
+  </nav>
+
+  <header class="hero" style="background-image:url('{{ url_for('static', filename='front.jpg') }}')">
+    <h1>Kazi Agrotech</h1>
+    <p>
+      Decide <b>which crop to grow</b> based on your soil nutrients and local weather.
+      Enter N-P-K, pH, humidity, temperature and rainfall to get an
+      AI-based recommendation.
+    </p>
+    <a href="/form"><button class="btn">Predict</button></a>
+  </header>
+
+  <section id="about" class="card">
+    <h2>About</h2>
+    <p>
+      Kazi Agrotech uses data-driven analytics to match soil chemistry and climate with
+      suitable crops to boost yield and sustainability.
+    </p>
+  </section>
+
+  <section id="services" class="card">
+    <h2>Services</h2>
+    <ul>
+      <li>Crop recommendation using N, P, K, pH, humidity, temperature & rainfall.</li>
+      <li>Simple web interface for students, farmers and researchers.</li>
+    </ul>
+  </section>
+</body>
+</html>
